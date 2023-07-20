@@ -4,12 +4,11 @@ pipeline {
         nodejs 'Node'
     }
     stages {
-        stage('build jar') {
+        stage('build') {
             steps {
                 echo "building Node application..."
-                sh "npn install"
-                sh "npm start"
-                sh "npn run build"             
+                sh "npm install"
+                sh "npm run build"             
             }
         }
         stage('build image') {
