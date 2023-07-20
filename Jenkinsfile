@@ -1,13 +1,10 @@
 pipeline {
     agent any
-    tools {
-        maven 'Maven'
-    }
     stages {
         stage('build jar') {
             steps {
                 echo "building application..."
-                sh "mvnw package"            
+                sh "mvn clean package"            
             }
         }
         stage('build image') {
