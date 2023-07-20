@@ -1,13 +1,14 @@
 pipeline {
     agent any
     tools {
-        node 'Node'
+        nodejs 'Node'
     }
     stages {
         stage('build jar') {
             steps {
                 echo "building Node application..."
                 sh "npn install"
+                sh "npm start"
                 sh "npn run build"             
             }
         }
