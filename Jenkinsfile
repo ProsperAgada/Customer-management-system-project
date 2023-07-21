@@ -9,9 +9,9 @@ pipeline {
                 echo "building docker image"
                 script {
                     withCredentials([usernamePassword(credentialsId: 'docker-hub credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-                        sh 'docker build -t agasprosper/cms-project:${BUILD_ID} .'
+                        sh 'docker build -t agasprosper/backend-maven:${BUILD_ID} .'
                         sh "echo $PASS | docker login -u $USER --password-stdin"
-                        sh 'docker push agasprosper/java-maven-app:${BUILD_ID}'
+                        sh 'docker push agasprosper/backend-maven:${BUILD_ID}'
                     }
                 }
             } 
