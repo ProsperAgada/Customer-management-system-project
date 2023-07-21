@@ -1,12 +1,9 @@
 pipeline {
     agent any
+    tools {
+        maven "Maven"
+    }
     stages {
-        stage('build jar') {
-            steps {
-                echo "building application..."
-                sh "mvn clean package"            
-            }
-        }
         stage('build image') {
             steps {
                 echo "building docker image"
